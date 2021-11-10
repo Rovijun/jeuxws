@@ -49,7 +49,7 @@ public class JeuController {
             );
         }
         else {
-            return avisRepository.findTopByOrderByDateEnvoieDesc();
+            return avisRepository.findByJeuIdOrderByDateEnvoieDesc();
         }
     }
 
