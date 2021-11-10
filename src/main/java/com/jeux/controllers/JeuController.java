@@ -41,6 +41,18 @@ public class JeuController {
         }
     }
 
+    @GetMapping(value = "/{jeu}/dernierAvis")
+    List<Avis> getLastAvis(@PathVariable(name = "jeu", required = true) Jeu jeu) {
+        if (jeu == null) {
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND, "Jeu introuvable"
+            );
+        }
+        else {
+            return avisRepository.findTopByOrderByDateEnvoieDesc();
+        }
+    }
+
     @GetMapping(value = "/{jeu}")
     Jeu getOne(@PathVariable(name = "jeu", required = false) Jeu jeu) {
         if (jeu == null) {

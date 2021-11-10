@@ -12,4 +12,6 @@ public interface AvisRepository extends CrudRepository<Avis, Long> {
     List<Avis> findAll();
 
     List<Avis> findByJeuId(Long jeuId);
+
+    List<Avis> findTopByOrderByDateEnvoieDesc();
 }
